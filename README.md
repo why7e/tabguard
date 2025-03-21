@@ -43,6 +43,22 @@ docs\.google\.com      # Matches Google Docs pages
 
 The extension will automatically lock any tab whose URL matches one of your patterns.
 
+## Development
+
+To compile the CSS file:
+
+1. Install dependencies:
+   ```bash
+   npm install tailwindcss @fontsource/atkinson-hyperlegible-next
+   ```
+
+2. Compile CSS:
+   ```bash
+   npx @tailwindcss/cli -i input.css -o output.css -m
+   ```
+
+
+
 ## About
 
 This project came around after losing countless hours of task notes in Autotask, which has no safeguards in place to prevent the accidental closing of a tab. It's a learning exercise that was helpful in several key areas:
