@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "TabGuard",
+  "version": "1.0",
+  "description": "Prompts for confirmation when attempting to close a tab",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["tabguard.js"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "icons/unlock.svg",
+      "48": "icons/unlock.svg",
+      "128": "icons/unlock.svg"
+    },
+    "default_title": "Click to toggle tab lock"
+  }
+}
