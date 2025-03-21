@@ -17,9 +17,3 @@ browser.runtime.onMessage.addListener((message, sender) => {
     });
   }
 }); 
-
-browser.action.onClicked.addListener(() => {
-  browser.runtime.sendMessage({
-    action: 'toggleLock'
-  });
-});
