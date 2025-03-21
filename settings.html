@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="output.css">
+  <script src="settings.js"></script>
+</head>
+
+<div class="font-hyperlegible flex flex-col items-center justify-center min-h-screen p-8 bg-white dark:bg-gray-900">
+  <h1 class="font-normal text-3xl font-bold mb-4 text-gray-900 dark:text-white">TabGuard Settings</h1>
+  <p class="text-sm font-extralight text-gray-500 dark:text-gray-400 mb-8">
+    Add URL patterns to automatically lock matching tabs. Use regular expressions to match URLs.
+  </p>
+
+  <div class="w-full max-w-md">
+    <!-- Add Pattern Form -->
+    <form id="patternForm" class="mb-8">
+      <div class="flex gap-2">
+        <input 
+          type="text" 
+          id="patternInput" 
+          placeholder="Enter URL pattern (regex)"
+          class="flex-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 
+                 bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-white 
+                 dark:placeholder-gray-400"
+          required
+        >
+        <button 
+          type="submit"
+          class="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 
+                 focus:outline-none focus:ring-2 focus:ring-blue-500
+                 dark:bg-blue-600 dark:hover:bg-blue-700"
+        >
+          Add Pattern
+        </button>
+      </div>
+    </form>
+
+    <!-- Pattern List -->
+    <div class="border rounded-lg overflow-hidden dark:border-gray-700">
+      <div class="bg-gray-50 dark:bg-gray-800 px-4 py-2 border-b dark:border-gray-700">
+        <h2 class="font-semibold text-gray-900 dark:text-white">URL Patterns</h2>
+      </div>
+      <ul id="patternList" class="divide-y dark:divide-gray-700 bg-white dark:bg-gray-800">
+        <!-- Patterns will be inserted here -->
+      </ul>
+    </div>
+  </div>
+</div>

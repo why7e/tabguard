@@ -1,7 +1,5 @@
-(function() {
-  // Got some unmatchable pattern from SO for now
-  const pattern = /a\bc/;
-  // const pattern = /^(https?:\/\/)?(www\.)?youtube\.com\/watch\?v=.*$/;
+(async function() {
+  let patterns = await getPatterns();
   let locked = false;
 
   function lockIcon() {
@@ -19,7 +17,10 @@
   }
 
   function checkAndUpdateState() {
-    const patternMatch = pattern.test(window.location.href);
+    const patternMatch = patterns.some((pattern) => {
+      const regex = new RegExp(pattern);
+      return regex.test(window.location.href);
+    });
     if (patternMatch !== locked) {
       toggleLock();
     }
@@ -50,12 +51,17 @@
   }
 
   function toggleLock() {
-    console.log('toggling');
     if (locked) {
       unlockTab();
     } else {
       lockTab();
     }
+  }
+
+  function getPatterns() {
+    return browser.runtime.sendMessage({
+      action: 'getPatterns'
+    });
   }
 
   //////////////////////////////

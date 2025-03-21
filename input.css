@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+@import '@fontsource/atkinson-hyperlegible-next/200.css';
+@import '@fontsource/atkinson-hyperlegible-next/400.css';
+
+@theme {
+    --font-hyperlegible: "Atkinson Hyperlegible Next", sans-serif;
+}
