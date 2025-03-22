@@ -1,0 +1,28 @@
+{
+  "name": "tabguard",
+  "version": "1.0.0",
+  "description": "A Firefox extension to prevent accidental tab closures",
+  "main": "background.js",
+  "scripts": {
+    "build:css": "tailwindcss -i input.css -o output.css -m",
+    "build:extension": "web-ext build --overwrite-dest",
+    "build": "npm run build:css && npm run build:extension",
+    "watch:css": "tailwindcss -i input.css -o output.css -m --watch"
+  },
+  "keywords": [
+    "firefox",
+    "extension",
+    "tab",
+    "lock",
+    "browser"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@fontsource/atkinson-hyperlegible-next": "^5.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.0",
+    "web-ext": "^7.10.0"
+  }
+} 

@@ -43,28 +43,19 @@ docs\.google\.com      # Matches Google Docs pages
 
 The extension will automatically lock any tab whose URL matches one of your patterns.
 
-## Development
+## Build instructions
 
-To compile the CSS file:
+To pack the complete extension locally:
 
-1. Install dependencies:
+1. Install dependencies
    ```bash
-   npm install tailwindcss @fontsource/atkinson-hyperlegible-next
-   npm install --save-dev web-ext
+   npm i
    ```
 
-2. Compile CSS:
-   ```bash
-   npx @tailwindcss/cli -i input.css -o output.css -m
+2. Compile and pack extension
    ```
-
-3. Pack extension
-   ```bash
-   web-ext build --o
+   npm run build
    ```
-   
-
-
 
 ## About
 
