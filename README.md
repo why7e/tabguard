@@ -50,12 +50,19 @@ To compile the CSS file:
 1. Install dependencies:
    ```bash
    npm install tailwindcss @fontsource/atkinson-hyperlegible-next
+   npm install --global web-ext
    ```
 
 2. Compile CSS:
    ```bash
    npx @tailwindcss/cli -i input.css -o output.css -m
    ```
+
+3. Pack extension
+   ```bash
+   web-ext build --o
+   ```
+   
 
 
 

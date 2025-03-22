@@ -60,20 +60,32 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Render patterns list
   function renderPatterns() {
-    patternList.innerHTML = patterns.length ? '' : '<li class="px-4 py-3 text-gray-500 dark:text-gray-400">No patterns added yet</li>';
+    // Clear existing list
+    patternList.textContent = '';
+    
+    if (!patterns.length) {
+      const emptyLi = document.createElement('li');
+      emptyLi.className = 'px-4 py-3 text-gray-500 dark:text-gray-400';
+      emptyLi.textContent = 'No patterns added yet';
+      patternList.appendChild(emptyLi);
+      return;
+    }
     
     patterns.forEach((pattern, index) => {
       const li = document.createElement('li');
       li.className = 'px-4 py-3 flex justify-between items-center hover:bg-gray-50 dark:hover:bg-gray-700 dark:text-white';
-      li.innerHTML = `
-        <span class="font-mono">${escapeHtml(pattern)}</span>
-        <button 
-          class="delete-btn px-2 py-1 text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 focus:outline-none" 
-          data-index="${index}"
-        >
-          Delete
-        </button>
-      `;
+      
+      const span = document.createElement('span');
+      span.className = 'font-mono';
+      span.textContent = pattern;
+      
+      const button = document.createElement('button');
+      button.className = 'delete-btn px-2 py-1 text-sm text-red-600 hover:text-red-800 dark:text-red-400 dark:hover:text-red-300 focus:outline-none';
+      button.dataset.index = index;
+      button.textContent = 'Delete';
+      
+      li.appendChild(span);
+      li.appendChild(button);
       patternList.appendChild(li);
     });
   }
