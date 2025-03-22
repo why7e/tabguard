@@ -11,6 +11,12 @@ function getPatterns() {
   });
 }
 
+// Initialize patterns
+let patterns;
+getPatterns().then(result => {
+  patterns = result;
+});
+
 // Handle icon clicks
 browser.action.onClicked.addListener((tab) => {
   browser.tabs.sendMessage(tab.id, {
@@ -43,9 +49,22 @@ browser.storage.onChanged.addListener((changes, namespace) => {
   }
 });
 
-// Initialize patterns
-let patterns;
-getPatterns().then(result => {
-  patterns = result;
+// Create a menu item to lock tabs
+browser.menus.create({
+  id: "toggle-lock",
+  contexts: ['tab', 'action'],
+  command: "_execute_action",
+  title: "Lock tab"
 });
 
+// Create button to access the settings menu
+browser.menus.create({
+  id: "tabguard-settings",
+  contexts: ['action'],
+  title: "Open settings"
+});
+browser.menus.onClicked.addListener((info) => {
+  if (info.menuItemId === "tabguard-settings") {
+    browser.runtime.openOptionsPage();
+  }
+});
