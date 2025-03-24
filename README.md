@@ -39,6 +39,9 @@ Examples of URL patterns:
 youtube\.com/watch      # Matches YouTube video pages
 docs\.google\.com      # Matches Google Docs pages
 .*\.example\.com       # Matches all subdomains of example.com
+
+# Matches Autotask time entries
+(https:\/\/)?ww6\.autotask\.net\/Mvc\/ServiceDesk\/TimeEntry\.mvc\/.*
 ```
 
 The extension will automatically lock any tab whose URL matches one of your patterns.
