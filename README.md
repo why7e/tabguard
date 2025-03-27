@@ -1,6 +1,6 @@
 # TabGuard
 
-TabGuard is a Firefox extension that helps prevent accidental tab closures.
+[TabGuard is a Firefox extension that helps prevent accidental tab closures.](https://addons.mozilla.org/en-US/firefox/addon/tabguard/)
 
 ## Features
 
